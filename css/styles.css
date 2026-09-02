@@ -1,0 +1,107 @@
+body {
+  font-family: sans-serif;
+}
+
+:root {
+  /* superficie y texto */
+  --bg: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-secondary: #52514e;
+  --border: rgba(11,11,11,0.10);
+
+  /* colores de serie — orden fijo, se usan en el Módulo 5 */
+  --series-1: #2a78d6; /* azul */
+  --series-2: #eb6834; /* naranjo */
+  --series-3: #1baf7a; /* aqua */
+  --series-4: #eda100; /* amarillo */
+
+  /* colores de estado — reservados, nunca son color de serie */
+  --good: #0ca30c;
+  --critical: #d03b3b;
+
+  /* espaciado y forma, reutilizados en todo el layout */
+  --radius: 14px;
+  --gap: 20px;
+  --shadow: 0 1px 2px rgba(11,11,11,.05), 0 6px 20px -10px rgba(11,11,11,.15);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 20px;
+}
+
+.kpi-label {
+  font-size: 13px;
+  color: var(--ink-secondary);
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.kpi-value {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.kpi-delta {
+  font-size: 13px;
+  color: var(--good);
+  margin: 4px 0 0;
+}
+
+.kpi-delta--down { color: var(--critical); }
+
+.dashboard-header { padding: 32px clamp(16px, 4vw, 48px) 8px; }
+.status-live { display: flex; align-items: center; gap: 8px; color: var(--ink-secondary); font-size: 14px; }
+.pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--good); }
+.pulse-dot.error { background: var(--critical); }
+
+main { padding: 8px clamp(16px, 4vw, 48px) 48px; }
+
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--gap);
+  margin-bottom: var(--gap);
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+
+/* el gráfico principal ocupa 2 de las 3 columnas */
+#chart-rendimiento { grid-column: span 2; }
+
+/* la tabla de tráfico se ve mejor a todo el ancho */
+#chart-trafico { grid-column: span 3; }
+
+.chart-canvas-wrap { position: relative; height: 220px; }
+#chart-rendimiento .chart-canvas-wrap { height: 280px; }
+.chart-canvas-wrap canvas { width: 100% !important; height: 100% !important; }
+
+@media (max-width: 720px) {
+  .charts-grid { grid-template-columns: 1fr; }
+  #chart-rendimiento, #chart-trafico { grid-column: span 1; }
+}
+
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.data-table th, .data-table td { padding: 8px 6px; text-align: left; border-bottom: 1px solid var(--border); }
+.data-table th { color: var(--ink-secondary); font-weight: 600; }
+.data-table td:not(:first-child), .data-table th:not(:first-child) { 
+  text-align: right; 
+  font-variant-numeric: tabular-nums; 
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard en Tiempo Real</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="dashboard-header">
+  <h1>Resumen de Campañas</h1>
+  <p class="status-live" aria-live="polite">
+    <span class="pulse-dot" id="pulseDot"></span> 
+    <span id="statusTexto">Conectado con el servidor...</span>
+  </p>
+</header>
+
+<main>
+  <section class="kpi-row" aria-label="Indicadores principales">
+    <article class="card kpi-card" id="kpi-campanas">
+      <h2 class="kpi-label">Campañas Totales</h2>
+      <p class="kpi-value">134</p>
+      <p class="kpi-delta">+8.7%</p>
+    </article>
+
+    <article class="card kpi-card" id="kpi-gasto">
+      <h2 class="kpi-label">Gastos en campañas</h2>
+      <p class="kpi-value">$32.5K</p>
+      <p class="kpi-delta">+8.7%</p>
+    </article>
+
+    <article class="card kpi-card" id="kpi-presupuesto">
+      <h2 class="kpi-label">Presupuesto Usado</h2>
+      <p class="kpi-value">44.1%</p>
+      <p class="kpi-delta">+8.7%</p>
+    </article>
+
+    <article class="card kpi-card" id="kpi-convertidos">
+      <h2 class="kpi-label">Leads Convertidos</h2>
+      <p class="kpi-value">52.3%</p>
+      <p class="kpi-delta">+8.7%</p>
+    </article>
+
+    <article class="card kpi-card" id="kpi-generados">
+      <h2 class="kpi-label">Leads Generados</h2>
+      <p class="kpi-value">$52.3M</p>
+      <p class="kpi-delta">+8.7%</p>
+    </article>
+  </section>
+
+  <section class="charts-grid" aria-label="Gráficos">
+    <article class="chart-card chart-card--main" id="chart-rendimiento">
+      <h2>Rendimiento de Campañas</h2>
+      <div class="chart-canvas-wrap"><canvas></canvas></div>
+    </article>
+
+    <article class="card chart-card" id="chart-estado">
+      <h2>Estado de Campañas</h2>
+      <div class="chart-canvas-wrap"><canvas></canvas></div>
+    </article>
+
+    <article class="card chart-card" id="chart-costo-lead">
+      <h2>Costo por Lead</h2>
+      <div class="chart-canvas-wrap"><canvas></canvas></div>
+    </article>
+
+    <article class="card chart-card" id="chart-canal">
+      <h2>Desglose por Canal</h2>
+      <div class="chart-canvas-wrap"><canvas></canvas></div>
+    </article>
+
+    <article class="card chart-card" id="chart-embudo">
+      <h2>Embudo de Conversión</h2>
+      <div class="chart-canvas-wrap"><canvas></canvas></div>
+    </article>
+
+    <article class="card chart-card" id="chart-trafico">
+      <h2>Fuentes de Tráfico</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Fuente</th><th>Visitas</th><th>Conversiones</th><th>Costo</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Search</td><td>4.200</td><td>310</td><td>$1.240</td></tr>
+          <tr><td>Social</td><td>3.680</td><td>295</td><td>$980</td></tr>
+          <tr><td>Email</td><td>2150</td><td>410</td><td>$310</td></tr>
+          <tr><td>Display</td><td>1.890</td><td>120</td><td>$860</td></tr>
+          <tr><td>Referral</td><td>960</td><td>180</td><td>$0</td></tr>
+        </tbody>
+      </table>
+    </article>
+  </section>
+</main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.1/chart.umd.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
