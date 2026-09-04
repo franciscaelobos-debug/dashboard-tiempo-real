@@ -162,7 +162,7 @@ function actualizarDashboard(datos) {
 
 async function obtenerDatos() {
   try {
-    const respuesta = await fetch('http://localhost:3000/api/dashboard');
+    const respuesta = await fetch('https://tu-servicio.onrender.com/api/dashboard');
     if (!respuesta.ok) {
       throw new Error(`El servidor respondió con estado ${respuesta.status}`);
     }
